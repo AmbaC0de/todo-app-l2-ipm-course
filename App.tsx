@@ -36,6 +36,12 @@ export default function App() {
       <View style={styles.rectangle}>
         <Text style={styles.compteur}>{monCompteur}</Text>
       </View>
+      {/* 
+      Exercice: 
+        Faire un composant bouton reutilisable dans le dossier composants
+        - Le composant doit prendre en prop le titre du bouton
+          Et une fonction onPress, pour gerer l'appui
+      */}
       <Pressable style={styles.button} onPress={incrementer}>
         <Text>Incrementer !</Text>
       </Pressable>
