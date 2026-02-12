@@ -1,16 +1,59 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+
+type CarteProps = {
+  titre: string;
+  descripion: string;
+  imageUrl: string;
+};
+
+const Carte = ({ titre, descripion, imageUrl }: CarteProps) => {
+  return (
+    <View>
+      <Text>{titre}</Text>
+      {/* Image */}
+      <Image
+        source={{
+          uri: "https://reactnative.dev/img/tiny_logo.png",
+        }}
+        style={{ width: 50, height: 50 }}
+      />
+      <Text>{descripion}</Text>
+    </View>
+  );
+};
 
 export default function App() {
-  const [monCompteur, setMonCompteur] = useState(10);
+  const [monCompteur, setMonCompteur] = useState(0);
+  const utilisateur = "Bamba";
+  const utilisateurs = [
+    { id: 1, nom: "Abibatou" },
+    { id: 2, nom: "Maryam" },
+    {
+      id: 3,
+      nom: "Bamba",
+    },
+    {
+      id: 4,
+      nom: "Amadou",
+    },
+  ];
 
   const incrementer = () => {
     setMonCompteur(monCompteur + 1);
-    console.log("compteur = ", monCompteur);
   };
 
   return (
     <View style={styles.ecranPrincipal}>
+      <Carte
+        titre="Un titre"
+        descripion="Une description"
+        imageUrl="https://reactnative.dev/img/tiny_logo.png"
+      />
+      {utilisateurs.map((utilisateur) => (
+        <Text key={utilisateur.id}>{utilisateur.nom}</Text>
+      ))}
+
       <View style={styles.rectangle}>
         <Text style={styles.compteur}>{monCompteur}</Text>
       </View>
