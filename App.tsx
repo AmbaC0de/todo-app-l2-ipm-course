@@ -14,7 +14,7 @@ const Carte = ({ titre, descripion, imageUrl }: CarteProps) => {
       {/* Image */}
       <Image
         source={{
-          uri: "https://reactnative.dev/img/tiny_logo.png",
+          uri: imageUrl,
         }}
         style={{ width: 50, height: 50 }}
       />
