@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import Carte from "./src/composants/Carte";
+import Bouton from "./src/composants/Bouton";
 
 export default function App() {
   const [monCompteur, setMonCompteur] = useState(0);
@@ -38,9 +39,7 @@ export default function App() {
         - Le composant doit prendre en prop le titre du bouton
           Et une fonction onPress, pour gerer l'appui
       */}
-      <Pressable style={styles.button} onPress={incrementer}>
-        <Text>Incrementer !</Text>
-      </Pressable>
+      <Bouton titre="Incrementer" onPress={incrementer} />
     </View>
   );
 }
