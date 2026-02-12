@@ -1,27 +1,6 @@
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-
-type CarteProps = {
-  titre: string;
-  descripion: string;
-  imageUrl: string;
-};
-
-const Carte = ({ titre, descripion, imageUrl }: CarteProps) => {
-  return (
-    <View>
-      <Text>{titre}</Text>
-      {/* Image */}
-      <Image
-        source={{
-          uri: imageUrl,
-        }}
-        style={{ width: 50, height: 50 }}
-      />
-      <Text>{descripion}</Text>
-    </View>
-  );
-};
+import Carte from "./src/composants/Carte";
 
 export default function App() {
   const [monCompteur, setMonCompteur] = useState(0);
