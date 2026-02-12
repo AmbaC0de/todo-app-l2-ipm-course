@@ -12,10 +12,6 @@ export default function App() {
       id: 3,
       nom: "Bamba",
     },
-    {
-      id: 4,
-      nom: "Amadou",
-    },
   ];
 
   const incrementer = () => {
