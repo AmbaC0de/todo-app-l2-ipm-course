@@ -24,7 +24,7 @@ export default function App() {
       <Carte
         titre="Un titre"
         descripion="Une description"
-        imageUrl="https://reactnative.dev/img/tiny_logo.png"
+        imageUrl="https://images.unsplash.com/photo-1761839258671-6495fdc188b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8"
       />
       {utilisateurs.map((utilisateur) => (
         <Text key={utilisateur.id}>{utilisateur.nom}</Text>
