@@ -1,45 +1,27 @@
 import { useState } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import Carte from "./src/composants/Carte";
-import Bouton from "./src/composants/Bouton";
+import { StyleSheet, Text, View } from "react-native";
+import CarteUtilisateur from "./src/composants/CarteUtilisateur";
 
 export default function App() {
-  const [monCompteur, setMonCompteur] = useState(0);
-  const utilisateur = "Bamba";
-  const utilisateurs = [
-    { id: 1, nom: "Abibatou" },
-    { id: 2, nom: "Maryam" },
-    {
-      id: 3,
-      nom: "Bamba",
-    },
+  const imageUrl =
+    "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  const personnes = [
+    { image: imageUrl, prenom: "Amadou BA", id: 1 },
+    { image: imageUrl, prenom: "Bamba", id: 2 },
+    { image: imageUrl, prenom: "Mariama", id: 3 },
+    { image: imageUrl, prenom: "Abibatou", id: 4 },
+    { image: imageUrl, prenom: "Adama", id: 5 },
   ];
-
-  const incrementer = () => {
-    setMonCompteur(monCompteur + 1);
-  };
 
   return (
     <View style={styles.ecranPrincipal}>
-      <Carte
-        titre="Un titre"
-        descripion="Une description"
-        imageUrl="https://images.unsplash.com/photo-1761839258671-6495fdc188b3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8"
-      />
-      {utilisateurs.map((utilisateur) => (
-        <Text key={utilisateur.id}>{utilisateur.nom}</Text>
+      {personnes.map((personne) => (
+        <CarteUtilisateur
+          key={personne.id}
+          prenom={personne.prenom}
+          imageUrl={personne.image}
+        />
       ))}
-
-      <View style={styles.rectangle}>
-        <Text style={styles.compteur}>{monCompteur}</Text>
-      </View>
-      {/* 
-      Exercice: 
-        Faire un composant bouton reutilisable dans le dossier composants
-        - Le composant doit prendre en prop le titre du bouton
-          Et une fonction onPress, pour gerer l'appui
-      */}
-      <Bouton titre="Incrementer" onPress={incrementer} />
     </View>
   );
 }
@@ -47,24 +29,6 @@ export default function App() {
 const styles = StyleSheet.create({
   ecranPrincipal: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  rectangle: {
-    width: 500,
-    height: 200,
-    backgroundColor: "#1f8a16b4",
-    justifyContent: "center",
-  },
-  compteur: {
-    textAlign: "center",
-    fontSize: 30,
-  },
-  button: {
-    backgroundColor: "#a19b9b",
-    padding: 10,
-    borderRadius: 15,
-    marginTop: 20,
     justifyContent: "center",
     alignItems: "center",
   },
