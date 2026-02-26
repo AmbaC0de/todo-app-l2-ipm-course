@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
   carte: {
     width: "98%",
     height: 60,
-    backgroundColor: "#d1c0c0",
+    backgroundColor: "#b69090",
     margin: 10,
     borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
+    borderWidth: 1,
   },
   avatar: {
     width: 50,
