@@ -1,4 +1,10 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 type CarteUtilisateurProps = {
   prenom: string;
