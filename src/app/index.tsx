@@ -10,10 +10,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import CarteUtilisateur from "./src/composants/CarteUtilisateur";
+import CarteUtilisateur from "../composants/CarteUtilisateur";
+import { useRouter } from "expo-router";
 
-export default function App() {
+export default function Index() {
   const [prenom, setPrenom] = useState("");
+  const router = useRouter();
   const [refreshing, setRefreshing] = useState(false);
   const personnes = [
     {
@@ -112,21 +114,23 @@ export default function App() {
     setPrenom(prenom);
   };
 
+  const allerDansDetails = () => {
+    router.navigate("/detail");
+  };
+
   return (
     <View style={styles.ecranPrincipal}>
       <View style={{ backgroundColor: "blue", padding: 20 }}>
         <Text>On a appuye sur:</Text>
         <Text>{prenom}</Text>
       </View>
-      <FlatList
-        data={personnes}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => afficherPrenom(item.prenom)}>
-            <CarteUtilisateur prenom={item.prenom} imageUrl={item.image} />
+      <ScrollView>
+        {personnes.map((p) => (
+          <TouchableOpacity onPress={allerDansDetails}>
+            <CarteUtilisateur key={p.id} prenom={p.prenom} imageUrl={p.image} />
           </TouchableOpacity>
-        )}
-      />
-      j
+        ))}
+      </ScrollView>
     </View>
   );
 }
