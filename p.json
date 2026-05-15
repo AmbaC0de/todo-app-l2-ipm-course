@@ -1,0 +1,14 @@
+{
+  "prenom": "Amadou",
+  "enfant": {
+    "prenom": "Am junior"
+  },
+  "enfants": [
+    {
+      "prenom": "Am junior"
+    },
+    {
+      "prenom": "Am junior 2"
+    }
+  ]
+}
